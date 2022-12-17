@@ -38,7 +38,7 @@ export default function Event(props)
                     {themeArr}
                 </div>
                 <Card.Text>Venue: <span>{props.event.venue}</span></Card.Text>
-                <Button variant="primary" onClick={() => {navigate('/ViewMore')}}>View More</Button>
+                <Button variant="primary" onClick={() => {navigate('/ViewMore',{state: {title: props.event.title,}})}}>View More</Button>
             </Card.Body>
         </Card>
     )
