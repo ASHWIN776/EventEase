@@ -3,9 +3,9 @@ import Main from './components/Main'
 
 const Home = () => {
     return (
-        <div className='d-flex flex-row justify-content-around h-100'>
+        <div className='d-flex flex-row justify-content-around eventImg' >
         <div>
-            Image
+            <img src="/src/assets/imgs/event.png" style={{marginTop: '200px'}} alt="" />
         </div>
             <Main/>
         </div>
