@@ -1,4 +1,6 @@
+import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
@@ -16,18 +18,12 @@ function NavScrollExample() {
             navbarScroll
           >
             <Nav.Link href="#action1">Home</Nav.Link>
-            
-            <NavDropdown title="Account" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Login</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
-                Signup
-              </NavDropdown.Item>
-              
-             
-            </NavDropdown>
-            
-          </Nav>
           
+          </Nav>
+          <Form className="d-flex">
+            
+            <Button variant="outline-success">Login</Button>
+          </Form>
         </Navbar.Collapse>
       </Container>
     </Navbar>
