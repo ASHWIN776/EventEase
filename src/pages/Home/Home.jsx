@@ -1,10 +1,10 @@
 import React from 'react'
-import NavScrollExample from './components/navbar'
+import Main from './components/Main'
 
 const Home = () => {
     return (
         <div>
-            <NavScrollExample/>
+            <Main/>
         </div>
     )
 }

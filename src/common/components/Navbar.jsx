@@ -4,10 +4,15 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../../firebase.config';
 function NavScrollExample() {
+  const [user] = useAuthState(auth);
+  const logout = () => {
+    auth.signOut();
+  }
   return (
-    <Navbar bg="dark" variant="dark" expand="lg">
+    <Navbar bg="dark" variant='dark' expand="lg">
       <Container fluid>
         <Navbar.Brand href="#">EventEase</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
@@ -18,11 +23,11 @@ function NavScrollExample() {
             navbarScroll
           >
             {/* <Nav.Link href="#action1">Home</Nav.Link> */}
-          
+
           </Nav>
           <Form className="d-flex">
-            
-            <Button variant="outline-success">Login</Button>
+
+            {user && <Button onClick={logout} variant="outline-danger">Logout</Button>}
           </Form>
         </Navbar.Collapse>
       </Container>
