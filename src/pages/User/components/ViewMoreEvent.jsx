@@ -1,10 +1,10 @@
 import React from "react"
-import NavScrollExample from "./components/navbar"
+import NavScrollExample from "./navbar"
 
 const ViewMore = () => {
     return (  
         <div>
-            NavScrollExample
+            <NavScrollExample/>
         </div>
     );
 }
