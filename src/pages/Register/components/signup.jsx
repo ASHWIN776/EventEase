@@ -1,9 +1,12 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button';
 
 function SignUp(){
     return ( 
         <div className="App">
-           ddddd
+           <Button>
+               SignUp
+            </Button>
         </div>
 
      );
