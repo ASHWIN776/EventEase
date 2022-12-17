@@ -1,6 +1,6 @@
 import React from 'react'
-import NavScrollExample from './components/Navbar'
-import AddEvent from './components/addEvent'
+import NavScrollExample from '../../common/components/Navbar'
+import AddEvent from './components/AddEvent'
 
 
 const Host = () => {
