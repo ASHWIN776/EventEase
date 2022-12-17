@@ -1,0 +1,14 @@
+:root {
+  --dark-one: #041c32;
+  --dark-two: #04293a;
+  --dark-three: #064663;
+  --light-one: #ecb365;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+/* body {
+  background-color: var(--);
+} */

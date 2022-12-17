@@ -1,12 +1,10 @@
 import React from 'react'
-import NavScrollExample1 from './components/navbarRegister'
-import SignUp from './components/signup'
+import SignUp from './components/Signup'
 
 
 const Register = () => {
     return (
         <div>
-            <NavScrollExample1/>
             <SignUp/>
         </div>
     )
