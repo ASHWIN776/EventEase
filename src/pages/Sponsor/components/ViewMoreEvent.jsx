@@ -1,33 +1,42 @@
-import React from "react"
+import { useState, useEffect } from "react"
 import NavScrollExample from "./navbar"
-import {useLocation} from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
-
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../../../firebase.config";
 
 const ViewMore = () => {
-    
-    let eventInfo = useLocation().state;
-    console.log(eventInfo)
-    
-    let themeArr = eventInfo.theme.map(t => (
-        <Button variant="light" size="sm" active className="mx-2 my-2">
-            {t}
-        </Button>
-    ));
-    return (  
+    const { id } = useParams();
+    const [eventInfo, setEventInfo] = useState(null)
+    useEffect(() => {
+        const getEvent = async () => {
+            const docRef = doc(db, "events", id);
+            const docSnap = await getDoc(docRef);
+            console.log(docSnap.data());
+            if (docSnap.exists())
+                setEventInfo(docSnap.data());
+        }
+        getEvent();
+    }, [])
+
+
+    return (
         <div>
-            <NavScrollExample/>
             <center>
-                <h1>{eventInfo.title}</h1>
+                <h1>{eventInfo?.title}</h1>
                 <div>
-                    {themeArr}
+                    {eventInfo && eventInfo.theme.map((t, i) => (
+                        <Button key={i} variant="light" size="sm" active className="mx-2 my-2">
+                            {t}
+                        </Button>
+                    ))}
                 </div>
                 <p>
-                    {eventInfo.content}
+                    {eventInfo?.content}
                 </p>
             </center>
         </div>
     );
 }
- 
+
 export default ViewMore;
