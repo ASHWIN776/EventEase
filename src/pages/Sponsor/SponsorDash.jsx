@@ -2,6 +2,7 @@ import React from "react"
 import Event from "./components/Event"
 import eventData from "../../assets/eventData"
 import "./sponsorDash.css"
+import NavScrollExample from './components/navbar'
 
 export default function UserDash()
 {   
@@ -9,6 +10,9 @@ export default function UserDash()
     
     return (
         <>
+        <NavScrollExample />
+        <br/>
+            <br/>
             <div>
                 <h1>Available Events</h1>
                 <div className="eventDiv">
