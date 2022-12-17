@@ -10,7 +10,6 @@ export default function UserDash()
     
     return (
         <>
-            <NavScrollExample />
             <br/>
             <br/>
             <div>
