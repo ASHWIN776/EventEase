@@ -42,8 +42,8 @@ function Main() {
     };
   }
   return (
-    <Form className="d-flex justify-content-center">
-      <Button onClick={authenticate} variant="outline-success">Login</Button>
+    <Form className="d-flex justify-content-center align-items-center">
+      <Button onClick={authenticate} variant="outline-success">Continue with Google</Button>
     </Form>
 
   );

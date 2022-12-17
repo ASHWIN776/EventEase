@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useParams } from 'react-router-dom'
 import './App.css'
 import Auth from './pages/Auth/Auth'
 import Home from './pages/Home/Home'
@@ -18,11 +18,11 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/auth' element={<Auth />} />
-        <Route path='/AddEventForm' element={<AddEventForm />} />
-
+        <Route path='/AddEventForm/:id' element={<AddEventForm />} />
       </Routes>
     </div>
   )
 }
+
 
 export default App
