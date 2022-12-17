@@ -1,10 +1,10 @@
 import React from 'react'
-import Test from './components/Test'
+import NavScrollExample from './components/navbar'
 
 const Home = () => {
     return (
         <div>
-            <Test />
+            <NavScrollExample/>
         </div>
     )
 }
