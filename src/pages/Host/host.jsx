@@ -1,5 +1,5 @@
 import React from 'react'
-import NavScrollExample from './components/navbar'
+import NavScrollExample from './components/Navbar'
 import AddEvent from './components/addEvent'
 
 
