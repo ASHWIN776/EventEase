@@ -1,0 +1,22 @@
+.center{
+    width: 40%;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.center p, .center h5{
+    text-align: center;
+}
+
+
+
+form:nth-child(1){
+    border: 2px solid grey;
+    text-align: center;
+    padding-bottom: 1rem;
+}
+
+
+form:nth-child(1) div{
+    margin: 1rem 0;
+}
