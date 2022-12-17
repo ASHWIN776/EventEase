@@ -6,13 +6,14 @@ const Register = () => {
     const [role, setRole] = useState('');
     return (
         <div>
-            <h5>Type</h5>
+            <h5>Select Role</h5>
 
-            <input type="radio" value="sponsor" name="role" onClick={() => setRole("sponsor")} />
+            <input type="radio" value="sponsor"  onClick={() => setRole("sponsor")} />
+            <img src="" alt="" />
             <label htmlFor="html">Sponsor</label>&emsp;
-            <input type="radio" value="host" name="role" onClick={() => setRole("host")} />
+            <input type="radio" value="host"  onClick={() => setRole("host")} />
             <label htmlFor="html">Host</label>&emsp;
-            <input type="radio" value="user" name="role" onClick={() => setRole("user")} />
+            <input type="radio" value="user"  onClick={() => setRole("user")} />
             <label htmlFor="html">User</label>
             {role != "" &&
                 <SignUp role={role} />
