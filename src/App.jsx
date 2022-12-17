@@ -25,7 +25,7 @@ function App() {
         <Route path='/profile' element={<Register />} />
         <Route path='/user-dash' element={<UserDash />} />
         <Route path='/sponsor-dash' element={<SponsorDash />} />
-        <Route path='/view-more/:id' element={<ViewMore />} />
+        <Route path='/view-more/' element={<ViewMore />} />
         <Route path='/view-more-sponsor/:id' element={<ViewMoreSponsor />} />
         <Route path='/auth' element={<Auth />} />
         <Route path='/add-event-form/' element={<AddEventForm />} />

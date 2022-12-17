@@ -6,6 +6,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../../firebase.config';
+
 function NavScrollExample() {
   const [user] = useAuthState(auth);
   const logout = () => {

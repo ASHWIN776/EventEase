@@ -16,7 +16,7 @@ const ViewMore = () => {
     ));
     return (  
         <div>
-            <NavScrollExample/>
+            
             <center>
                 <h1>{eventInfo.title}</h1>
                 <div>
@@ -25,6 +25,18 @@ const ViewMore = () => {
                 <p>
                     {eventInfo.content}
                 </p>
+                <div>
+                    <div>
+                    <Button variant="light" size="sm" active className="mx-2 my-2">
+                        Apply as a volunteer
+                        </Button>
+                    </div>
+                    <div>
+                    <Button variant="light" size="sm" active className="mx-2 my-2">
+                        Participate
+                    </Button>
+                    </div>
+                </div>
             </center>
         </div>
     );
