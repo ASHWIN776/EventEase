@@ -1,27 +1,59 @@
-import React from "react";
+import { useState } from "react";
 import Button from "react-bootstrap/Button";
+import { useForm } from "react-hook-form";
+import { db, auth } from '../../../firebase.config';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router';
+import {
+    collection,
+    addDoc
+} from 'firebase/firestore';
 
-function SignUp() {
+function SignUp({ role }) {
+    const { register, handleSubmit } = useForm();
+    const [user] = useAuthState(auth);
+    const navigate = useNavigate();
     return (
         <div>
-            <form>
-                <h5>Type</h5>
+            <form onSubmit={handleSubmit(async (data) => {
+                const profile = {
+                    uuid: user.uid,
+                    ...data
+                }
+                console.log(profile);
+                try {
+                    const result = await addDoc(collection(db, "profile"), profile);
+                    if (result)
+                        navigate(`/${data.role}-dash`);
 
-                <input type="radio" value="Sponsor" name="role" />
-                <label for="html">Sponsor</label>&emsp;
-                <input type="radio" value="Host" name="role" />
-                <label for="html">Host</label>&emsp;
-                <input type="radio" value="User" name="role" />
-                <label for="html">User</label>
 
-                <input type="text" placeholder="Enter your Organization" />
-                <input type="text" placeholder="Enter your location" />
-                <input type="text" placeholder="Enter your dept" />
-                <input type="text" placeholder="Enter your sem" />
-                <input type="text" placeholder="Enter your company name" />
-                <input type="text" placeholder="Enter your Contact" />
-                <textarea placeholder="Enter your company description"></textarea>
-                <Button>SignUp</Button>
+                } catch (error) {
+                    console.log(error);
+                }
+
+            })}>
+
+                {/* host */}
+                {role === 'host' && <input {...register("organization")} type="text" placeholder="Enter your Organization" />}
+                {/* user */}
+                {role === 'user' &&
+                    <>
+                        <input {...register("department")} type="text" placeholder="Enter your dept" />
+                        <input {...register("semester")} type="text" placeholder="Enter your sem" />
+                    </>
+                }
+                {/* sponsor */}
+                {role === 'sponsor' &&
+                    <>
+                        <input {...register("companyName")} type="text" placeholder="Enter your company name" />
+                        <textarea {...register("companyDescp")} placeholder="Enter your company description"></textarea>
+                    </>
+                }
+                {/* host and sponsor */}
+                {(role === 'sponsor' || role === 'host') &&
+                    <input {...register("contact")} type="text" placeholder="Enter your Contact" />
+                }
+                <Button type="submit">SignUp</Button>
             </form>
         </div>
     );
