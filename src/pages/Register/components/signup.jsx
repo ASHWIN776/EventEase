@@ -14,7 +14,7 @@ function SignUp({ role }) {
     const [user] = useAuthState(auth);
     const navigate = useNavigate();
     return (
-        <div>
+        <div classname="my-3">
             <form onSubmit={handleSubmit(async (data) => {
                 const profile = {
                     uuid: user.uid,
@@ -34,24 +34,44 @@ function SignUp({ role }) {
             })}>
 
                 {/* host */}
-                {role === 'host' && <input {...register("organization")} type="text" placeholder="Enter your Organization" />}
+                {role === 'host' && 
+                <div>
+                    <label htmlFor="">Organization</label><br />
+                    <input {...register("organization")} type="text"  />
+                </div>
+                }
                 {/* user */}
                 {role === 'user' &&
                     <>
-                        <input {...register("department")} type="text" placeholder="Enter your dept" />
-                        <input {...register("semester")} type="text" placeholder="Enter your sem" />
+                        <div classname="my-3">
+                            <label htmlFor="">Department</label><br />
+                            <input id="dept" {...register("department")} type="text"/>
+                        </div>
+                        <div classname="my-3">
+                            <label htmlFor="">Semester</label><br />
+                            <input {...register("semester")} type="text" />
+                        </div>
                     </>
                 }
                 {/* sponsor */}
                 {role === 'sponsor' &&
                     <>
-                        <input {...register("companyName")} type="text" placeholder="Enter your company name" />
-                        <textarea {...register("companyDescp")} placeholder="Enter your company description"></textarea>
+                        <div classname="my-3">
+                            <label htmlFor="">Company Name</label><br />
+                            <input {...register("companyName")} type="text"/>
+                        </div>
+                        <div classname="my-3">
+                            <label htmlFor="">Company Description</label><br />
+                            <textarea {...register("companyDescp")} rows="4" cols="50"></textarea>
+                        </div>
                     </>
                 }
                 {/* host and sponsor */}
                 {(role === 'sponsor' || role === 'host') &&
-                    <input {...register("contact")} type="text" placeholder="Enter your Contact" />
+                    <div classname="my-3">
+                        <label htmlFor="">Contact</label><br />
+                        <input {...register("contact")} type="text"/>
+                    </div>
                 }
                 <Button type="submit">SignUp</Button>
             </form>
