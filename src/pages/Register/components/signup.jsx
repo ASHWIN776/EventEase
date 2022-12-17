@@ -23,9 +23,9 @@ function SignUp({ role }) {
                 console.log(profile);
                 try {
                     const result = await addDoc(collection(db, "profile"), profile);
-                    if (result)
-                        navigate(`/${data.role}-dash`);
-
+                    if (result);
+                    console.log(role);
+                        // navigate(`/${role}-dash`);
 
                 } catch (error) {
                     console.log(error);
