@@ -1,0 +1,15 @@
+.eventContent{
+    width: 50%;
+    margin: 0 auto;
+}
+
+
+.eventOperationDiv{
+    border: 2px solid grey;
+    width: 800px;
+}
+
+.eventOperationDiv span{
+    font-weight: bold;
+}
+

@@ -22,19 +22,23 @@ const ViewMore = () => {
 
     return (
         <div>
-            <center>
-                <h1>{eventInfo?.title}</h1>
-                <div>
-                    {eventInfo && eventInfo.theme.map((t, i) => (
-                        <Button key={i} variant="light" size="sm" active className="mx-2 my-2">
-                            {t}
-                        </Button>
-                    ))}
-                </div>
-                <p>
-                    {eventInfo?.content}
-                </p>
-            </center>
+            <h1>{eventInfo?.title}</h1>
+            <div>
+                {eventInfo && eventInfo.theme.map((t, i) => (
+                    <Button key={i} variant="light" size="sm" active className="mx-2 my-2">
+                        {t}
+                    </Button>
+                ))}
+            </div>
+            <p>
+                {eventInfo?.content}
+            </p>
+            <div className="eventOperationDiv">
+                <p>Already Sponsored Companies Count: <span>100</span></p>
+                <Button variant="success" size="sm" active className="mx-2 my-2">
+                    Sponsor the Event
+                </Button>
+            </div>
         </div>
     );
 }
