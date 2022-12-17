@@ -6,6 +6,8 @@ import Register from './pages/Register/Register'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import UserDash from './pages/User/UserDash'
 import SponsorDash from './pages/Sponsor/SponsorDash'
+import ViewMore from './pages/User/components/ViewMoreEvent'
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -16,7 +18,7 @@ function App() {
         <Route path='/' element={<Register />} />
         <Route path='/UserDash' element={<UserDash />} />
         <Route path='/SponsorDash' element={<SponsorDash />} />
-
+        <Route path='/ViewMore' element={<ViewMore />} />
       </Routes>
     </div>
   )
