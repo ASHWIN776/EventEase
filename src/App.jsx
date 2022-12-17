@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import UserDash from './pages/User/UserDash'
 import SponsorDash from './pages/Sponsor/SponsorDash'
 import ViewMore from './pages/User/components/ViewMoreEvent'
+import ViewMoreSponsor from './pages/Sponsor/components/ViewMoreEvent'
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path='/UserDash' element={<UserDash />} />
         <Route path='/SponsorDash' element={<SponsorDash />} />
         <Route path='/ViewMore' element={<ViewMore />} />
+        <Route path='/ViewMoreSponsor' element={<ViewMoreSponsor />} />
       </Routes>
     </div>
   )
