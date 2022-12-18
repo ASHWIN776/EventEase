@@ -10,10 +10,11 @@ import { doc, getDoc, getDocs } from "firebase/firestore";
 import { useNavigate } from 'react-router';
 
 function NavScrollExample() {
+  let navigate = useNavigate();
   const [user] = useAuthState(auth);
-  const navigate = useNavigate();
   const logout = () => {
     auth.signOut();
+    navigate("/");  
   }
   const getType = async () => {
     const q = query(collection(db, "profile"), where("uid", "==", user.uid));

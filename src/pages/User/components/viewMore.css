@@ -1,0 +1,30 @@
+.eventContent{
+    width: 50%;
+    margin: 0 auto;
+}
+
+
+.eventOperationDiv{
+    border: 2px solid grey;
+    width: 800px;
+    display: flex;
+}
+
+
+.eventOperationDiv > div{
+    text-align: center;
+    flex-basis: 50%;
+}
+
+.eventOperationDiv > div:nth-child(1)
+{
+    border-right: 2px solid grey;
+}
+
+.eventOperationDiv span{
+    font-weight: bold;
+}
+
+.eventOperationDiv ul{
+    margin: 0;
+}
