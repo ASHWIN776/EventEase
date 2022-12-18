@@ -2,12 +2,21 @@ import { useState, useEffect } from "react"
 import NavScrollExample from "./navbar"
 import { useLocation, useParams } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "../../../firebase.config";
 
 const ViewMore = () => {
     const { id } = useParams();
-    const [eventInfo, setEventInfo] = useState(null)
+    const [eventInfo, setEventInfo] = useState(null);
+    const sponsor = async () => {
+        const eventsRef = doc(db, "events", id);
+
+        await updateDoc(eventsRef, {
+            sponsorCount: parseInt(eventInfo?.sponsorCount) + 1,
+
+        });
+        window.location.reload();
+    }
     useEffect(() => {
         const getEvent = async () => {
             const docRef = doc(db, "events", id);
@@ -34,8 +43,8 @@ const ViewMore = () => {
                 {eventInfo?.content}
             </p>
             <div className="eventOperationDiv">
-                <p>Already Sponsored Companies Count: <span>100</span></p>
-                <Button variant="success" size="sm" active className="mx-2 my-2">
+                <p>Already Sponsored Companies Count: <span>{eventInfo?.sponsorCount}</span></p>
+                <Button onClick={sponsor} variant="success" size="sm" active className="mx-2 my-2">
                     Sponsor the Event
                 </Button>
             </div>
