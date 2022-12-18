@@ -4,45 +4,10 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Row from 'react-bootstrap/Row';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { db, auth } from '../../../firebase.config';
-import { useNavigate } from "react-router-dom";
-import { useForm } from 'react-hook-form';
-import {
-  collection,
-  addDoc,
-  Timestamp
-} from 'firebase/firestore';
 
-export default function AddEventForm() {
-  let navigate = useNavigate();
-  const [validated, setValidated] = useState(false);
-  const { register, handleSubmit } = useForm();
-  const [user] = useAuthState(auth);
+export default function AddEventForm({ register }) {
   return (
-    <Form noValidate validated={validated} onSubmit={handleSubmit(async (data) => {
-      const event = {
-        uid: user.uid,
-        createdAt: Timestamp.now(),
-        title: data.title,
-        theme: [data.theme],
-        keywords: [data.keyword],
-        participantsNo: data.participantsNo,
-        imgUrl: data.imgUrl,
-        venue: data.venue
-      }
-      try {
-        const result = await addDoc(collection(db, "events"), event);
-        if (result);
-        // console.log(role);
-        navigate(`/host-dash`);
-
-      } catch (error) {
-        console.log(error);
-      }
-    })}>
-      <br />
-      <br />
+    <>
       <Row className="mb-3">
         <Form.Group as={Col} md="4" controlId="validationCustom01">
           <Form.Label>Title</Form.Label>
@@ -50,10 +15,9 @@ export default function AddEventForm() {
             // required
             {...register("title")}
             type="text"
-            placeholder="title"
+            placeholder="Title"
 
           />
-
         </Form.Group>
         <Form.Group as={Col} md="4" controlId="validationCustom02">
           <Form.Label>Theme</Form.Label>
@@ -61,34 +25,34 @@ export default function AddEventForm() {
             // required
             {...register("theme")}
             type="text"
-            placeholder="theme"
+            placeholder="theme1, theme2, theme3"
 
           />
 
         </Form.Group>
         <Form.Group as={Col} md="4" controlId="validationCustomUsername">
           <Form.Label>Keywords</Form.Label>
-          <InputGroup hasValidation>
 
-            <Form.Control
-              {...register("keyword")}
-              type="text"
-              placeholder="keyword"
-              aria-describedby="inputGroupPrepend"
-            // required
-            />
 
-          </InputGroup>
+          <Form.Control
+            {...register("keyword")}
+            type="text"
+            placeholder="keyword1, keyword2, keyword3"
+            aria-describedby="inputGroupPrepend"
+          // required
+          />
+
+
         </Form.Group>
       </Row>
       <Row className="mb-3">
-        <Form.Group as={Col} md="6" controlId="validationCustom03">
+        {/* <Form.Group as={Col} md="6" controlId="validationCustom03">
           <Form.Label>Particpants No</Form.Label>
           <Form.Control {...register("participantsNo")} type="text" placeholder="Particpants No"
           //required 
           />
 
-        </Form.Group>
+        </Form.Group> */}
         <Form.Group as={Col} md="3" controlId="validationCustom04">
           <Form.Label>ImgUrl</Form.Label>
           <Form.Control {...register("imgUrl")} type="text" placeholder="ImgUrl"
@@ -106,7 +70,6 @@ export default function AddEventForm() {
 
       </Row>
 
-      <Button type="submit">Submit</Button>
-    </Form>
+    </>
   );
 }

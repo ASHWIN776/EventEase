@@ -13,8 +13,8 @@ import {
 } from 'firebase/firestore';
 
 export default function UserDash() {
-    const messagesRef = collection(db, 'events');
-    const q = query(messagesRef, orderBy("createdAt"));
+    const eventsRef = collection(db, 'events');
+    const q = query(eventsRef, orderBy("createdAt"));
     const [events] = useCollection(q, { idField: 'id' });
 
 

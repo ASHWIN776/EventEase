@@ -1,6 +1,6 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button';
-import AddEventForm from './AddEventForm';
+import AddEventForm from '../../AddEvent/components/AddEventForm';
 import { useNavigate } from "react-router-dom";
 
 const AddEvent = () => {

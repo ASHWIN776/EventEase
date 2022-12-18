@@ -4,7 +4,8 @@ import Card from 'react-bootstrap/Card';
 import Nav from 'react-bootstrap/Nav';
 import { useNavigate } from "react-router-dom";
 
-export default function Event(props) {
+export default function Event(props)
+{
     let themeArr = props.event.theme.map(t => (
         <Button variant="light" size="sm" active className="mx-2 my-2">
             {t}
@@ -13,12 +14,12 @@ export default function Event(props) {
 
     let navigate = useNavigate();
 
-    let keywordArr = props.event.keywords.map(k =>
-    (
-        <Button variant="light" size="sm" active className="mx-2">
-            {k}
-        </Button>
-    )
+    let keywordArr = props.event.keywords.map(k => 
+        (
+            <Button variant="light" size="sm" active className="mx-2">
+                {k}
+            </Button>
+        )
     )
 
     return (
@@ -27,7 +28,7 @@ export default function Event(props) {
             <Card.Header>
                 <Nav className="py-2" variant="tabs" defaultActiveKey="#first">
                     {keywordArr}
-
+                    
                 </Nav>
             </Card.Header>
             <Card.Body>
@@ -37,7 +38,7 @@ export default function Event(props) {
                     {themeArr}
                 </div>
                 <Card.Text>Venue: <span>{props.event.venue}</span></Card.Text>
-                <Button variant="primary" onClick={() => { navigate(`/view-more/`, { state: props.event }) }}>View More</Button>
+                <Button variant="primary" onClick={() => {navigate(`/view-more/`,{state: props.event})}}>View More</Button>
             </Card.Body>
         </Card>
     )
